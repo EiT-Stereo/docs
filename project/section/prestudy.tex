@@ -1,0 +1,54 @@
+\chapter{Forstudie}
+
+\section{Hardware}
+
+Hardware omfatter systemet fra sensor til nettverksprotokollen. Hvilken hardware
+som trengs er da avhengig av hvilke sensorer som er tilgjengelige, utfordringer
+i forhold til signaloverføring, hvilke data
+man får fra ulike sensorer, hvilken dataprosessering som er nødvendig og
+hvilken nettverksprotokoll som brukes.
+
+\section{Definerende og begrensende faktorer}
+
+En definerenede faktor for hardware er måleteknikk. Ulike måleteknikker studeres
+i seksjon (henvisning). Måleteknikken setter også en begrensing på hva som er
+mulig å måle og dermed hvilke tjenester systemet kan tilby. \\
+
+I bilindustrien er CAN den rådende nettverksprotokollen (sjekke med ref). Man
+kan argumentere for at man på grunnlag av dette burde integrere nye systemer på
+det eksisterende nettverket. Uansett hvilket nettverk det skal kommuniseres over
+vil det stille krav til hardware. En enhet bør kunne kommunisere på samme
+nettverk på riktig protokoll. \\
+
+\section{Vibrasjonsmåling}
+
+Ved måling av vibrasjon trenger man en ADC. En DSP kunne blitt brukt for å kjøre
+avanserte algoritmer på input signalene, men det kan også blir gjort mer sentral
+(ett nivå over) for gjør oppgradering av SW enklere. Konsekvensen er også
+laverer effektforbruk og kostnad. \\
+
+Kommunikasjon skjer ved å sende CAN pakker på et eksisterende nettverk. Pakkene
+inneholder målinger tatt periodisk med et gitt samplingsvindu. Man må da se
+nærmere på hvor stor dette vinduet bør være samt hvor ofte målingen må tas. Det
+er kanskje nødvendig med analog filtrering av signalet (før ADC). \\
+
+Tanken er å ha sensoren på akslingen mellom to hjul. For å skille mellom hvilket
+hjul som har løse muttere, så kan det være en løsning å bruke en sensor ved vært
+hjul. Da er to mulig algoritmer å måle amplitudeforskjell eller
+tidsforsinkelse. Dette burde være mulig å få til med en MCU, men kan være det
+blir nødvendig med en DSP for raskere prosessering av signalene. \\
+
+MCUen sender pakkene med en ID slik at man kan skille mellom ulike akslinger.
+
+\section{Strekklapper/Trykklapper}
+
+Tanken er å legge strekklapper inni eller på utsiden av boltene. Strekklappene
+må/kan/bør legges i en krets (Wheatstone feks) for å kunne gi ut et målbart
+nivå. Denne analoge målingen krever mye lavere sampling end ved vibrasjonsmålinger.
+Man kan få problemer med at signalet fra strekklappen må gjennom en slepering.
+Man må også ha en sensor per bolt. Dette fører til mer HW. Det er mulig å lage
+en krets hvor man benytter seg av tidskonstanten i en RC-krets. Overføring av
+signaler fra nav til aksling kan også skje ved induksjon. For å koble til flere
+enheter på et CAN nettverk så kan man benytte seg av J1939 som fordelere ID på
+nettverket.
+
