@@ -2,38 +2,48 @@
 
 \section{Hardware}
 
-Hardware omfatter systemet fra sensor til nettverksprotokollen. Hvilken hardware
-som trengs er da avhengig av hvilke sensorer som er tilgjengelige, utfordringer
-i forhold til signaloverføring, hvilke data
-man får fra ulike sensorer, hvilken dataprosessering som er nødvendig og
+Hardware omfatter systemet fra sensor til nettverksprotokollen som blir brukt i
+bilsystemet. Hvilken hardware
+som trengs er da avhengig av hvilke sensorer som er tilgjengelige, hvilke data
+man får fra de ulike sensorene, hvilken dataprosessering som er nødvendig og
+utfordringer i forhold til signaloverføring og
 hvilken nettverksprotokoll som brukes. \\
 
 \subsection{Definerende og begrensende faktorer}
 
-En definerenede faktor for hardware er måleteknikk. Ulike måleteknikker studeres
+En definerenede faktor for hardware er måleteknikk. Det er da særlig krets
+mellom eventuelt microcontroller og sensor som vil variere. Ulike måleteknikker studeres
 i seksjon (henvisning). Måleteknikken setter også en begrensing på hva som er
 mulig å måle og dermed hvilke tjenester systemet kan tilby. \\
 
 I bilindustrien er CAN den rådende nettverksprotokollen (sjekke med ref). Man
 kan argumentere for at man på grunnlag av dette burde integrere nye systemer på
 det eksisterende nettverket. Uansett hvilket nettverk det skal kommuniseres over
-vil det stille krav til hardware. En ny enhet bør derfor kunne kommunisere på samme
-nettverk på riktig protokoll. \\
+vil det stille krav til hardware. En ny enhet bør ha riktig nettverksgrensesnitt
+og må kunne kommunisere på riktig protokoll. \\
 
 \subsection{Sensorteknologier}
+
+(Denne er seksjonen er tildels uferdig). \\
 
 Det er mange fysiske prinsipper som kan måles for å detektere en løs hjulmutter.
 Det er derfor viktig å undersøke hvilke sensorteknologier som er tilgjengelig og
 hvilke fordeler disse drar med seg. \\
 
-Tre ulike fysiske prinsipper som kan brukes er strekk, trykk og vibrasjon
+Tre ulike fysiske prinsipper som kan brukes er strekk, trykk og vibrasjon. \\
 
 \section{Vibrasjonsmåling}
 
-Ved måling av vibrasjon trenger man en ADC. En DSP kunne blitt brukt for å kjøre
-avanserte algoritmer på input signalene, men det kan også blir gjort mer sentral
-(ett nivå over) for gjør oppgradering av SW enklere. Konsekvensen er også
-laverer effektforbruk og kostnad. \\
+Vibrasjonsmåling kan bli gjort med teknologier som et akselerometer eller ved
+pizoelektriske microfoner. Slike sensorer vil kunne gi et signal som inneholder
+ulike frekvenstyper som kan analyseres. For å analysere dette signalet må det
+samples med en ADC. Dersom signalet er svakt må det også forsterkes gjennom en
+OP AMP krets. For å hente ut informasjon av signalet må en algoritme undersøke
+frekvensoppbyggingen av signalet. Dette kan bli gjort i HW med en DSP, men kan
+også gjøres i SW ved at man bare sender en signalprøve til controlsystemet. Å
+bruke en DSP kompliserer HW og effektforbruk og kost øker. Analyserer man
+signalet i SW slipper man disse konsekvensene og det blir lettere å oppdatere
+algoritmen dersom det er nødvendig. \\
 
 Kommunikasjon skjer ved å sende CAN pakker på et eksisterende nettverk. Pakkene
 inneholder målinger tatt periodisk med et gitt samplingsvindu. Man må da se
@@ -46,17 +56,23 @@ hjul. Da er to mulig algoritmer å måle amplitudeforskjell eller
 tidsforsinkelse. Dette burde være mulig å få til med en MCU, men kan være det
 blir nødvendig med en DSP for raskere prosessering av signalene. \\
 
-MCUen sender pakkene med en ID slik at man kan skille mellom ulike akslinger.
+MCUen sender pakkene med en ID slik at man kan skille mellom ulike akslinger. \\
 
 \section{Strekklapper/Trykklapper}
 
-Tanken er å legge strekklapper inni eller på utsiden av boltene. Strekklappene
+Tanken er å legge strekklapper inni eller på utsiden av boltene eller
+trykklapper mellom bolt og nav. Strekklappene
 må/kan/bør legges i en krets (Wheatstone feks) for å kunne gi ut et målbart
-nivå. Denne analoge målingen krever mye lavere sampling end ved vibrasjonsmålinger.
+spenningsnivå. For å oppnå et målbart spenningsnivå må man mest sannsynlig
+forsterke signalet gjennom en In Amp. Denne analoge målingen krever mye lavere sampling end ved
+vibrasjonsmålinger da det trengs kortere signalprøver.
 Man kan få problemer med at signalet fra strekklappen må gjennom en slepering.
-Man må også ha en sensor per bolt. Dette fører til mer HW. Det er mulig å lage
-en krets hvor man benytter seg av tidskonstanten i en RC-krets. Overføring av
-signaler fra nav til aksling kan også skje ved induksjon. For å koble til flere
+Dette kan by på utfordringer med tanke på implementasjon og støy.
+Man må også ha en sensor per bolt. Dette fører til mer HW. En måte å redusere
+mengden HW på kan være å MUX'e signalene fra hver sensor til MCU. Det er mulig å lage
+en krets hvor man benytter seg av tidskonstanten i en RC-krets (dette må du
+undersøke litt). Overføring av
+signaler fra nav til aksling kan også skje ved induksjon (dette må du undersøke
+litt mer). For å koble til flere
 enheter på et CAN nettverk så kan man benytte seg av J1939 som fordelere ID på
-nettverket.
-
+nettverket (dette må du undersøke litt mer). \\
