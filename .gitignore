@@ -6,6 +6,8 @@
 *.out
 *.bak
 *.sav
+*.orig
+*.tex.*.tex
 # LaTeX files to ignore
 *.aux
 *.lof
