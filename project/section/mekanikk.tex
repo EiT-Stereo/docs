@@ -1,16 +1,23 @@
-
+\chapter{Mekanikk}
 Reaksjoner i systemet:
 
 For å utvikle ideer til hvordan problemstillingen kan løses, er det nødvendig å analysere hva som skjer om en hjulmutter løsner. Det har i denne sammenheng blitt brukt en brainstorming-teknikk for å sammen kunne komme fram til så mange av disse reaksjonene som mulig. Vi har identifisert følgende reaksjoner grunnet endring i mutterens tilstramming:
 
 \begin{table}[h]
-\begin{tabular}{ll}
+\begin{tabular}{|l|l|}
+\hline
 \textbf{Mekanisk}                   & \textbf{Annet}                                   \\
+\hline
 Strekk i bolt ved strammet mutter   & Temperaturendring pga friksjonsvarme ved løsning \\
+\hline
 Kompresjonsendring i mutter         & Vibrasjonsendringer i understell                 \\
+\hline
 Torsjonsendring                     & Endring i friksjon mellom bakke og hjul          \\
+\hline
 Trykkendring mellom mutter og flate & ...                                              \\
-...                                 &                                                 
+\hline
+...                                 &                                                 \\
+\hline
 \end{tabular}
 \end{table}
 
@@ -18,43 +25,43 @@ Etter å ha hørt med Olav Rogne, yrekssjåfør, har vi valgt å bruke dimensjon
 
 Momentet som tilføres bolten ved tiltrekking deles opp i to komponenter:
 
-M_{tiltrekning}=M_{v}+M_{s}
+$M\_{tiltrekning}=M\_{v}+M\_{s}$
 
-Der M_{v} er momentet som oppstår pga friksjonskrefter i gjengeflaten, og M_{s} er momentet som oppstår pga krefter mellom mutter og underlaget. Disse kan igjen bli beskrevet slik:
+Der $M\_{v}$ er momentet som oppstår pga friksjonskrefter i gjengeflaten, og $M\_{s}$ er momentet som oppstår pga krefter mellom mutter og underlaget. Disse kan igjen bli beskrevet slik:
 
-M_{v}=F\cdot tan(\varphi +\varepsilon )\cdot r_{m}
+$M\_{v}=F\cdot tan(\varphi +\varepsilon )\cdot r\_{m}$
 
 og
 
-M_{s}=\mu 'Fr_{m}
+$M\_{s}=\mu 'Fr\_{m}$
 
-I disse to formlene tar vi i bruk flere fraktorer.  r_{m} er radiusen som friksjonskraften mot underlaget antas å virke på:
+I disse to formlene tar vi i bruk flere fraktorer.  r\_{m} er radiusen som friksjonskraften mot underlaget antas å virke på:
 
-r_{m}=\frac{N\o kkelvidde+d_{h}}{4}
+$r\_{m}=\frac{N\o kkelvidde+d\_{h}}{4}$
 
-\varphi er gjengenes stigningsvinkel:
+$\varphi$ er gjengenes stigningsvinkel:
 
-\varphi =\frac{gjengestigning}{\pi \cdot d_{pich}}
+$\varphi =\frac{gjengestigning}{\pi \cdot d\_{pich}}$
 
-og \varepsilon er friksjonsvinkelen i skråplanet der kreftene i gjengene virker:
+og $\varepsilon$ er friksjonsvinkelen i skråplanet der kreftene i gjengene virker:
 
-\varepsilon =tan^{-1}(\frac{\mu}{cos(\alpha )})
+$\varepsilon =tan^{-1}(\frac{\mu}{cos(\alpha )})$
 
-Her er \alpha halve gjengevinkelen og vi har satt friksjonsfaktor i gjengeene til \mu=0.08 \cite{FriksjonsfaktorGjenger} %http://www.kamax.com/fileadmin/user_upload/dokumente/pdf/Bolt_and_Screw_Compendium.pdf
+Her er $\alpha$ halve gjengevinkelen og vi har satt friksjonsfaktor i gjengeene til $\mu=0.08$ \cite{FriksjonsfaktorGjenger} %http://www.kamax.com/fileadmin/user\_upload/dokumente/pdf/Bolt\_and\_Screw\_Compendium.pdf
 
 Videre kan vi løse dette for kraften:
 
-F_{aksiell}=\frac{M_{tiltrekning}}{(tan(\varphi +tan^{-1}(\frac{\mu }{cos(\alpha )}))+\mu')\frac{N+d_{h}}{4}}
+$F\_{aksiell}=\frac{M\_{tiltrekning}}{(tan(\varphi +tan^{-1}(\frac{\mu }{cos(\alpha )}))+\mu')\frac{N+d\_{h}}{4}}$
 
 Siden vi også vet at
 
-\sigma=\frac{F}{A}
+$\sigma=\frac{F}{A}$
 
 Kan vi si at trykket mellom mutter og underlag er:
 
-p_{trykkflate}=\frac{F_{aksiell}}{A_{trykkflate}}=\frac{F_{aksiell}}{\frac{\pi }{4}(D_{mutterflate}^{2}-D_{hull}^{2})}
+$p\_{trykkflate}=\frac{F\_{aksiell}}{A\_{trykkflate}}=\frac{F\_{aksiell}}{\frac{\pi }{4}(D\_{mutterflate}^{2}-D\_{hull}^{2})}$
 
 Videre vet vi at flytegrensen er:
 
 
-\sigma _{f}\approx 250 Mpa-350 Mpa
+$\sigma \_{f}\approx 250 Mpa-350 Mpa$
