@@ -12,12 +12,15 @@ boltsensor.
 Hvordan data skal analyseres vil være avhengig av hvilken type sensor man velger 
 for systemet. 
 
-\subsubsection{Boltsensor}
+\subsubsection{Strekklapp/Trykksensor}
 Ved bruk av enten strekklapp eller trykksensor vil man få inn en verdi per bolt 
 om hvor mye en bolt er strammet til. Analysen vil gå ut på å sammenligne målinger 
 med grenseverdier som er satt for de ulike sensorene.
 
-Utfordringer ved bruk av strekklapp/trykksensor %TODO
+En utfordring ved bruk av strekklapp/trykksensor er håndtering av 
+funksjonssvikt i sensor på en bolt. Temperatur og andre eksterne faktorer kan 
+også påvirke utslaget i sensorene, så det vil kunne være vanskelig å vite 
+nøyaktig hvor løs en bolt egentlig er.
 
 \subsubsection{Vibrasjonssensor}
 Ved bruk av vibrasjonssensor vil man få inn verdier fra en sensor som lytter på 
@@ -26,7 +29,7 @@ det er en feil på et av hjulene på akslingen. Ved bruk av to sensorer per aksl
 vil man kunne se hvilket hjul problemet gjelder. Dette kan gjøres ved å se 
 hvilken sensor som sendte lyden først.
 
-En kjent feil (feks. løse hjulbolter) vil høre til et kjent frekvensområde, som 
+En kjent feil (f.eks. løse hjulbolter) vil høre til et kjent frekvensområde, som 
 kan brukes til å skille ut eventuelle feil som skulle oppstå.
 
 Dersom man kjører på annet underlag slik som snø eller grus, vil dette kunne 
@@ -73,4 +76,10 @@ inn på varselen eller notifikasjonen vil man kunne få en bedre oversikt over
 problemene. Symboler og farger vil vise til hvilke feil som er gjeldene og hvor 
 alvorlig det er.
 
-Utfordringer ved bruk av vibrasjonssensor %TODO
+Dersom man bruker vibrasjonssensorer, vil man kun kunne vise hvilket hjul eller 
+hjulsett problemet ligger i, og man får ikke en like detaljert oversikt over 
+boltene som ved bruk av strekklapp eller trykksensor. Det må også defineres 
+en mengde ulike varsler for de ulike typene vibrasjoner som mottas. 
+Utfordingen der blir å gi kun akkurat nok informasjon til at varselet blir 
+verdifullt, men akkurat lite nok til at det ikke blir forstyrrende og vanskelig 
+å forstå hva som formidles.
