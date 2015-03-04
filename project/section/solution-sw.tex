@@ -6,10 +6,10 @@ Dette kapittelet beskriver et tenkt software system for å detektere løse hjulb
 %Kanskje ha med valg av utviklings metodologi (agile, waterfall, etc.)
 %Kanskje nevne hvilke overføringsprotokoller mellom µc og sw.
 
-\subsection{Arkitektur og krav}
+\subsection{Krav}
 \subsubsection{Krav}
 Tabell \ref{tab:frequirements} viser de funksjonelle kravene til software-systemet.
-\begin{table}
+\begin{table}[h]
 \caption{Funksjonelle krav}
 \label{tab:frequirements}
 \begin{tabularx}{\textwidth}{r|X}
@@ -20,10 +20,15 @@ FR2 & Systemet skal analysere dataene som kommer fra senorene og klassifisere en
 FR3 & Systemet skal ha et grafisk brukergrensesnitt \\
 FR4 & Brukergrensesnittet skal vise en ovresikt over alle hjulene på lastebilen \\
 FR5 & Brukergrensesnittet skal skille mellom hjul med, og uten løse hjulmuttere \\
-FR6 & Brukergrensesnittet skal varsle sjåføren om et hjul får en eller flere løse hjulmuttere \\
+FR6 & Brukergrensesnittet skal varsle brukeren om et hjul får en eller flere løse hjulmuttere \\
 \hline
 \end{tabularx}
 \end{table}
+
+\subsubsection{Arkitekturiske drivere}
+Hovedfokusen på dette systemet er at det skal være enkelt å bruke for brukeren. 
+
+
 %funksjonelle og ikke-funksjonelle krav(Quality Attribute requirements)
 %Architectural drivers og ASR(Architectural Significant Requirements)
 %Architectural patterns and tactics
