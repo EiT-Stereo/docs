@@ -1,5 +1,5 @@
 \section{Software}
-Dette kapittelet beskriver et tenkt software system for å detektere løse hjulbolter.
+Dette kapittelet beskriver et tenkt software system for å detektere løse hjulbolter, i dette kapittelet omtales software-systemet kun som systemet.
 
 \subsection{Valg av teknologier}
 %Progspråk, GUI rammeverk etc.
@@ -8,21 +8,21 @@ Dette kapittelet beskriver et tenkt software system for å detektere løse hjulb
 
 \subsection{Arkitektur og krav}
 \subsubsection{Krav}
-Tabell \ref{tab:frequirements} viser de funksjonelle kravene til software-systemet
+Tabell \ref{tab:frequirements} viser de funksjonelle kravene til software-systemet.
 \begin{table}
 \caption{Funksjonelle krav}
 \label{tab:frequirements}
-\begin{tabular}{r | l}
+\begin{tabularx}{\textwidth}{r|X}
 ID & Beskrivelse \\ 
 \hline
-FR1 & Software-systemet skal motta pakker med sensordata fra microcontrollerene \\
-FR2 & beskrivelse \\
-FR3 & beskrivelse \\
-FR4 & beskrivelse \\
-FR5 & beskrivelse \\
-FR6 & beskrivelse \\
+FR1 & Systemet skal motta pakker med sensordata fra microcontrollerene \\
+FR2 & Systemet skal analysere dataene som kommer fra senorene og klassifisere en hjulmutter som løs eller ikke \\
+FR3 & Systemet skal ha et grafisk brukergrensesnitt \\
+FR4 & Brukergrensesnittet skal vise en ovresikt over alle hjulene på lastebilen \\
+FR5 & Brukergrensesnittet skal skille mellom hjul med, og uten løse hjulmuttere \\
+FR6 & Brukergrensesnittet skal varsle sjåføren om et hjul får en eller flere løse hjulmuttere \\
 \hline
-\end{tabular}
+\end{tabularx}
 \end{table}
 %funksjonelle og ikke-funksjonelle krav(Quality Attribute requirements)
 %Architectural drivers og ASR(Architectural Significant Requirements)
