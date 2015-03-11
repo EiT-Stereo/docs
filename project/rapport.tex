@@ -58,6 +58,8 @@
 %\newpage
 %
 %\input{section/abstract}
+\chapter*{Sammendrag}
+	%\input{section/Sammendrag}
 
 \tableofcontents
 \newpage
@@ -66,6 +68,7 @@
 %%%
 % Put new includes here
 %%%
+
 
 \comment{ foreløpig struktur på rapport:
 Sammendrag
@@ -92,25 +95,27 @@ Konklusjon
 Referanseliste
 Vedlegg
 }
-%\input{section/Sammendrag} % aka abstract ?
-\input{section/introduction}
+
+
+
 \chapter{Forstudie}
 	\input{section/mekanikk}
 	\input{section/prestudy}
-	%\input{section/hardware}
 	\input{section/prestudy-sw}
 	\input{section/existing-solutions}
-%\input{section/Markedsundersøkelse}
+\chapter{Markedsundersøkelse}
 	%generelt
 	%4 p'er
 \chapter{Design og implementasjon}
+
 	%\input{section/løsning}
 	%\input{section/hardwareløsning}
 	\input{section/solution-sw}
 	%\input{section/løsningdiskusjon}
+\chapter{Konklusjon}
+\chapter{Referanseliste}
+\chapter{Vedlegg}
 %\input{section/Konklusjon}
-%\input{section/Referanseliste}
-%\input{section/Vedlegg}
 %%%
 % End includes
 %%%
@@ -120,13 +125,13 @@ Vedlegg
 \listoftables
 \addcontentsline{toc}{chapter}{Figurer}
 \listoffigures
-\addcontentsline{toc}{chapter}{Bibliography}
+\addcontentsline{toc}{chapter}{Bibliografi}
 \bibliographystyle{plain}
 \input{section/Bibliografi}
 
-%\newpage
-%\addcontentsline{toc}{chapter}{Appendixes} % This line may break your compilation, and may require recompiation. Not to worry though.
-%\appendix
+\newpage
+\addcontentsline{toc}{chapter}{Appendix} % This line may break your compilation, and may require recompiation. Not to worry though.
+\appendix
 %\input{section/appendix-someAppendix}
 
 \end{document}
