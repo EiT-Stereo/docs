@@ -42,9 +42,9 @@
 % Header packages
 \usepackage{fancyhdr}
 \pagestyle{fancy}
-\rhead{Chapter: \thechapter}
+\rhead{Kapittel: \thechapter}
 
-% Custom 
+% Custom
 %\newcommand{\newCommandName}{text to insert} % Defines a variable in LaTeX
 \newcommand{\comment}[1]{} \comment{This is a block comment wrapped in curly brackets}
 %\renewcommand{\thefootnote}{\roman{footnote}}
@@ -67,6 +67,14 @@
 % Put new includes here
 %%%
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> ad54d3c82e52ecafa863b8efd9bf801c0babd1ac
+>>>>>>> c42a29c59d7593b66badfdd3f21ad292b20ee634
 \comment{ foreløpig struktur på rapport:
 Sammendrag
 Innhold
@@ -92,6 +100,7 @@ Konklusjon
 Referanseliste
 Vedlegg
 }
+<<<<<<< HEAD
 \chapter{Sammendrag}
 	%\input{section/Sammendrag}
 \chapter{Innhold}
@@ -109,17 +118,47 @@ Vedlegg
 	%\input{generelt
 	%4 p'er
 \chapter{Løsning}
+=======
+%\input{section/Sammendrag} % aka abstract ?
+\chapter{Introduksjon}
+	\input{section/gruppen}
+	\input{section/initiativet}
+	\input{section/ideen}
+%\input{section/introduction}
+\chapter{Forstudie}
+	\input{section/mekanikk}
+	\input{section/prestudy}
+	\input{section/prestudy-sw}
+	\input{section/existing-solutions}
+\chapter{Markedsundersøkelse}
+	%generelt
+	%4 p'er
+\chapter{Design og implementasjon}
+>>>>>>> c42a29c59d7593b66badfdd3f21ad292b20ee634
 	%\input{section/løsning}
 	%\input{section/hardwareløsning}
 	%\input{section/softwareløsning}
 	%\input{section/løsningdiskusjon}
+\chapter{Konklusjon}
+\chapter{Referanseliste}
+\chapter{Vedlegg}
 %\input{section/Konklusjon}
-%\input{section/Referanseliste}
-%\input{section/Vedlegg}
 %%%
 % End includes
 %%%
-\addcontentsline{toc}{chapter}{Bibliography}
+
+\newpage
+\addcontentsline{toc}{chapter}{Tabeller}
+\listoftables
+\addcontentsline{toc}{chapter}{Figurer}
+\listoffigures
+\addcontentsline{toc}{chapter}{Bibliografi}
 \bibliographystyle{plain}
 \input{section/Bibliografi}
+
+\newpage
+\addcontentsline{toc}{chapter}{Appendix} % This line may break your compilation, and may require recompiation. Not to worry though.
+\appendix
+%\input{section/appendix-someAppendix}
+
 \end{document}
