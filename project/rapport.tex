@@ -42,9 +42,9 @@
 % Header packages
 \usepackage{fancyhdr}
 \pagestyle{fancy}
-\rhead{Chapter: \thechapter}
+\rhead{Kapittel: \thechapter}
 
-% Custom 
+% Custom
 %\newcommand{\newCommandName}{text to insert} % Defines a variable in LaTeX
 \newcommand{\comment}[1]{} \comment{This is a block comment wrapped in curly brackets}
 %\renewcommand{\thefootnote}{\roman{footnote}}
@@ -57,7 +57,10 @@
 \input{section/front-page}
 %\newpage
 %
+\begin{abstract}
+\noindent
 %\input{section/abstract}
+\end{abstract}
 
 \tableofcontents
 \newpage
@@ -67,7 +70,7 @@
 % Put new includes here
 %%%
 
-\input{section/introduction}
+
 \comment{ foreløpig struktur på rapport:
 Sammendrag
 Innhold
@@ -93,23 +96,47 @@ Konklusjon
 Referanseliste
 Vedlegg
 }
+
+\chapter{Introduksjon}
+	\input{section/gruppen}
+	\input{section/initiativet}
+	\input{section/ideen}
+
+
+\chapter{Forstudie}
+	\input{section/mekanikk}
+	\input{section/prestudy}
+	\input{section/prestudy-sw}
+	\input{section/existing-solutions}
+\chapter{Markedsanalyse}
+	\input{section/markedsanalyse}
+	%generelt
+	%4 p'er
+\chapter{Design og implementasjon}
+	\input{section/valglosning}
+	\input{section/muligheter_losning}
+	%\input{section/løsning}
+	%\input{section/hardwareløsning}
+	\input{section/solution-sw}
+	%\input{section/løsningdiskusjon}
+\chapter{Konklusjon}
+%\input{section/Konklusjon}
 %%%
 % End includes
 %%%
 
-%\newpage
-%\addcontentsline{toc}{chapter}{List of Tables}
-%\listoftables
-%\addcontentsline{toc}{chapter}{List of Figures}
-%\listoffigures
-%\addcontentsline{toc}{chapter}{Bibliography}
-%\bibliographystyle{plain}
-%\input{section/bibliography}
+\newpage
+\addcontentsline{toc}{chapter}{Tabeller}
+\listoftables
+\addcontentsline{toc}{chapter}{Figurer}
+\listoffigures
+\addcontentsline{toc}{chapter}{Bibliografi}
+\bibliographystyle{plain}
+\input{section/Bibliografi}
 
-%\newpage
-%\addcontentsline{toc}{chapter}{Appendixes} % This line may break your compilation, and may require recompiation. Not to worry though.
-%\appendix
+\newpage
+\addcontentsline{toc}{chapter}{Appendix} % This line may break your compilation, and may require recompiation. Not to worry though.
+\appendix
 %\input{section/appendix-someAppendix}
-
 
 \end{document}
