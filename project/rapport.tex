@@ -44,6 +44,10 @@
 \pagestyle{fancy}
 \rhead{Kapittel: \thechapter}
 
+% Footer packages
+\usepackage{lastpage}
+\cfoot{\thepage\ of \pageref{LastPage}}
+
 % Custom
 %\newcommand{\newCommandName}{text to insert} % Defines a variable in LaTeX
 \newcommand{\comment}[1]{} \comment{This is a block comment wrapped in curly brackets}
