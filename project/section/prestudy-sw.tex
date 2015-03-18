@@ -44,17 +44,14 @@ På grunn av uregelmessigheter i veibanen slik som et hull i veien eller flaske
 man kjører på, vil det være nødvendig å klassifisere noe som et problem dersom 
 frekvensen som skiller seg ut er gjeldene i mer enn en gitt tid.
 
-\subsubsection{Regelbasert vs resonnering}
-Ved bruk av vibrasjonssensor så er det vanskelig med analyse. 
-Man har mange forskjellige faktorer som bidrar til hvilke resultater man får fra sensorene.
+\subsubsection{Regelbasert vs kunnskapsbasert resonnering}
+Ved bruk av vibrasjonssensor så er det vanskelig med analyse, man har mange forskjellige faktorer som bidrar til hvilke resultater man får fra sensorene.
 I et regelbasert system så lager man regler for alle mulige scenarier og grenseområder innenfor de målte verdiene og de forskjellige faktorene som påvirker resultatet. 
 Dette kan fort bli meget komplisert om det er mange faktorer som spiller inn på resultatet, og det kan være vanskelig å ta høyde for alle de mulige situasjonene som kan oppstå.
-Derfor ble resonneringssystem undersøkt. 
+Derfor ble kunnskapsbasert resonnering undersøkt. 
 
 
-Resonnering er et område innenfor kunstig intelligens for å gjøre en avgjørelse hvor samspillet mellom inputene til systemet er ukjent eller vanskelig å representere. Resonneringssystemet får inn målinger og klassifiserer målingene som enten at en hjulmutter er løs eller ikke.
-Resonneringssystemet trenger treningsdata for å korrekt kunne klassifisere nye målinger av systemet. 
-Denne treningsdataen burde inneholde en rekke forskjellige observasjoner av mulig data som systemet kan generere, samt en klassifikasjon om det var en løs hjulbolt eller ikke. Dette blir brukt til å lære systemet til å kunne gjenkjenne løse hjulbolter ved nye observasjoner.
+Kunnskapsbasert resonnering er et område innenfor kunstig intelligens for å gjøre en avgjørelse hvor samspillet mellom inputene til systemet er ukjent eller vanskelig å representere. Resonneringssystemet får inn målinger og klassifiserer målingene som enten at en hjulmutter er løs eller ikke, dette gjøres på bakgrun av treningsdata. Treningsdataen brukes for å lære systemet hvordan en løs hjulmutter korrekt skal klassifiseres ved nye observasjoner. Dataen burde inneholde en rekke forskjellige observasjoner av mulig data som systemet kan generere, samt en klassifikasjon per observasjon om det var en løs hjulbolt eller ikke.
 
 En utfodring med å bruke resonneringssystem er å ha god nok treningsdata som dekker de mulige scenariene som can oppstå.
 Ved et resonneringssystem så har man også lite kontroll på hvordan systemet resonnerer og vekter sine inputs, derfor så er det vanskelig å si på forhånd om en observasjon vil bli klassifisert som en løs hjulmutter eller ikke. Ved bruk av et regelbasert system så har man mer kontrol på hvordan systemet behandler observasjoner, men det er igjen vanskeligere å initielt lage regler for de forskjellige situasjonene som kan oppstå.
