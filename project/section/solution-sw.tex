@@ -57,8 +57,16 @@ Ved å ha high modifiability så menes det at systemet skal være enkelt for utv
 \input{section/usecases}
 
 \subsection{Analyse av data}
-%Fourier transform.
-%Reasoning engine. 
+For å analysere dataene som kommer fra en vibrasjonsmåler, så må man ha en ganske avansert og pålitelig software. Dette systemet bruker Fourieranalyse for å skille ut individuelle frekvenser, og et resonneringssystem for å analysere resultatet fra fourieranalysen.
+
+\subsubsection{Fourieranalyse}
+
+\subsubsection{Resonneringssystem}
+Resonneringssystemet er et system for kunskapsanalyse som bruker en klassifikator for å analysere data og klassifisere målingene som enten at en hjulmutter er løs eller ikke.
+Resonneringssystemet trenger treningsdata for å korrekt kunne klassifisere nye målinger av systemet. 
+Denne dataen burde inneholde en rekke forskjellige observasjoner av mulig data som systemet kan generere, samt en klassifikasjon om det var en løs hjulbolt eller ikke. Dette blir brukt til å trene systemet til å kunne gjenkjenne løse hjulbolter.
+%Her har jeg tenkt å skrive noe om et tenkt resonneringssystem, et slags klasssifikasjon, for å analysere shitn.
+% eksempler: case based reasoning, bayes nets, beslutningstrær, ANN
 
 \subsection{Visualisering av data}
 %GUI og shit
