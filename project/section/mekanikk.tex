@@ -1,9 +1,10 @@
-\section{Mekanikk}
+	\section{Mekanikk}
 Reaksjoner i systemet:
 
 For å utvikle ideer til hvordan problemstillingen kan løses, er det nødvendig å analysere hva som skjer om en hjulmutter løsner. Det har i denne sammenheng blitt brukt en brainstorming-teknikk for å sammen kunne komme fram til så mange av disse reaksjonene som mulig. Vi har identifisert følgende reaksjoner grunnet endring i mutterens tilstramming:
 
 \begin{table}[h]
+\caption{Mekaniske og andre reaksjoner i systemet}
 \begin{tabular}{|l|l|}
 \hline
 \textbf{Mekanisk}                   & \textbf{Annet}                                   \\
@@ -16,12 +17,10 @@ Torsjonsendring                     & Endring i friksjon mellom bakke og hjul   
 \hline
 Trykkendring mellom mutter og flate & ...                                              \\
 \hline
-...                                 &                                                 \\
-\hline
 \end{tabular}
 \end{table}
 
-Etter å ha hørt med Olav Rogne, yrekssjåfør, har vi valgt å bruke dimensjonene han har oppgitt som utregningseksempel. Det ble opplyst om at det var normalt å bruke mutter av typen M33x3.5 som trekkes til med et tiltrekkingsmoment på 700Nm. Man kan utifra dette enkelt regne ut spenninger som oppstår i bolten.
+Etter å ha intervjuet Olav Rogne, yrekssjåfør, har vi valgt å bruke dimensjonene han har oppgitt som utregningseksempel. Det ble opplyst om at det var normalt å bruke mutter av typen M33x3.5 som trekkes til med et tiltrekkingsmoment på 700Nm. Man kan utifra dette enkelt regne ut spenninger som oppstår i bolten.
 
 Momentet som tilføres bolten ved tiltrekking deles opp i to komponenter:
 \begin{center}
@@ -66,3 +65,20 @@ Videre vet vi at flytegrensen er:
 \begin{center}
 $\sigma _{f}\approx 250 Mpa-350 Mpa$
 \end{center}
+
+Ut ifra disse beregningene har vi kommet fram til at det vil være et overtrykk trykk på 116.6 MPa mellom mutter og flaten mutteren trykker på, samt et strekk på 193 Mpa i bolten. Disse beregningene kan også simuleres med en "finite element method" (FEM) analyse i programvare tilgjengelig ved NTNU som for eksempel NX 9.0 som er brukt i dette tilfellet. Først blir bolten og mutteren modellert etter dimensjonene for en M33x3.5 bolt. Den blir så tilført et mesh av elementer. Disse elementene blir hver for seg oppfattet som en egen modell, der beregninger blir gjennomført på et og et element, der reaksjonene i elementenes noder blir overført til sammenfallende noder i omliggende elementer. På denne måten kan man simulere hvordan krefter virker på både bolt og mutter slik at man får ut ønskede reaksjoner.
+
+\begin{figure}[H]
+		\centering
+		\includegraphics[width=1.00\textwidth]{images/Rapportbilde_skrue.png}
+		\label{fig:FEMskrue}
+		\caption{FEM-analyse av belastninger på tiltrukket bolt. Fra venstre til høyre: Modellert bolt, Forenklet og tilført mesh, Styrkeberegninger (her illustrert ved deformasjon}
+	\end{figure}
+\begin{figure}[H]
+		\centering
+		\includegraphics[width=1.00\textwidth]{images/Rapportbilde_mutter.png}
+		\label{fig:FEMskrue}
+		\caption{FEM-analyse av belastninger på tiltrukket mutter. Fra venstre til høyre: Modellert mutter, Styrkeberegninger her illustrert ved deformasjon.}
+	\end{figure}
+
+ 
