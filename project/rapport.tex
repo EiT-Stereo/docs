@@ -42,9 +42,9 @@
 % Header packages
 \usepackage{fancyhdr}
 \pagestyle{fancy}
-\rhead{Chapter: \thechapter}
+\rhead{Kapittel: \thechapter}
 
-% Custom 
+% Custom
 %\newcommand{\newCommandName}{text to insert} % Defines a variable in LaTeX
 \newcommand{\comment}[1]{} \comment{This is a block comment wrapped in curly brackets}
 %\renewcommand{\thefootnote}{\roman{footnote}}
@@ -57,7 +57,10 @@
 \input{section/front-page}
 %\newpage
 %
+\begin{abstract}
+\noindent
 %\input{section/abstract}
+\end{abstract}
 
 \tableofcontents
 \newpage
@@ -67,27 +70,74 @@
 % Put new includes here
 %%%
 
-\input{section/introduction}
+
 \comment{ foreløpig struktur på rapport:
-prestudy
-	hw
-	sw
-	markedsundersøkelse
-	existing solutions
-	hvorfor vår(e) ide(er) er bedre.
-designchoises / arkitekturvalg
-use cases/arkitektur scetches
-tests?
-oppsummering
+Sammendrag
+Innhold
+Introduksjon
+	Gruppen
+	Initiativet
+	Problemet
+	Ideen
+Pre study
+	Mekanikk
+	Hardware
+	Software
+Markedsundersøkelse
+	generelt
+	4 p'er
+Løsning
+	valg av løsning
+	hardware
+	software
+		GUI
+	diskusjon
+Konklusjon
+Referanseliste
+Vedlegg
 }
-\input{section/datavisualisering}
-\input{section/mekanikk}
-\input{section/solution-hw}
+
+\chapter{Introduksjon}
+	\input{section/gruppen}
+	\input{section/initiativet}
+	\input{section/problemet}
+	\input{section/ideen}
+
+
+\chapter{Forstudie}
+	\input{section/mekanikk}
+	\input{section/prestudy}
+	\input{section/prestudy-sw}
+	\input{section/existing-solutions}
+\chapter{Markedsanalyse}
+	\input{section/markedsanalyse}
+	%generelt
+	%4 p'er
+\chapter{Design og implementasjon}
+	\input{section/valglosning}
+	\input{section/muligheter_losning}
+	%\input{section/løsning}
+	%\input{section/hardwareløsning}
+	\input{section/solution-sw}
+	%\input{section/løsningdiskusjon}
+\chapter{Konklusjon}
+%\input{section/Konklusjon}
 %%%
 % End includes
 %%%
 
-\addcontentsline{toc}{chapter}{Bibliography}
+\newpage
+\addcontentsline{toc}{chapter}{Tabeller}
+\listoftables
+\addcontentsline{toc}{chapter}{Figurer}
+\listoffigures
+\addcontentsline{toc}{chapter}{Bibliografi}
 \bibliographystyle{plain}
 \input{section/Bibliografi}
+
+\newpage
+\addcontentsline{toc}{chapter}{Appendix} % This line may break your compilation, and may require recompiation. Not to worry though.
+\appendix
+%\input{section/appendix-someAppendix}
+
 \end{document}
