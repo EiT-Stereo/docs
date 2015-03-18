@@ -44,6 +44,10 @@
 \pagestyle{fancy}
 \rhead{Kapittel: \thechapter}
 
+% Footer packages
+\usepackage{lastpage}
+\cfoot{\thepage\ av \pageref{LastPage}}
+
 % Custom
 %\newcommand{\newCommandName}{text to insert} % Defines a variable in LaTeX
 \newcommand{\comment}[1]{} \comment{This is a block comment wrapped in curly brackets}
@@ -100,11 +104,13 @@ Vedlegg
 \chapter{Introduksjon}
 	\input{section/gruppen}
 	\input{section/initiativet}
+	\input{section/problemet}
 	\input{section/ideen}
 
 
 \chapter{Forstudie}
 	\input{section/mekanikk}
+	\input{section/vibrasjoner}
 	\input{section/prestudy}
 	\input{section/prestudy-sw}
 	\input{section/existing-solutions}
