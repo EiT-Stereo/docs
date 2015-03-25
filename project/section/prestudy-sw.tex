@@ -26,11 +26,10 @@ nøyaktig hvor løs en bolt egentlig er.
 Ved bruk av vibrasjonssensor vil man få inn verdier fra en sensor som lytter på 
 akslingene. Dersom man bruker av en sensor per aksling vil man kunne detektere at 
 det er en feil på et av hjulene på akslingen. Ved bruk av to sensorer per aksling 
-vil man kunne se hvilket hjul problemet gjelder. Dette kan gjøres ved å se 
-hvilken sensor som sendte lyden først.
-
-En kjent feil (f.eks. løse hjulbolter) vil høre til et kjent frekvensområde, som 
-kan brukes til å skille ut eventuelle feil som skulle oppstå.
+vil man kunne se hvilket hjul problemet gjelder, dette kan gjøres ved å se 
+hvilken sensor som sendte signalet først. En kjent feil (f.eks. løse hjulbolter) vil 
+høre til et kjent frekvensområde, som kan brukes til å skille ut eventuelle 
+feil som skulle oppstå.
 
 Dersom man kjører på annet underlag slik som snø eller grus, vil dette kunne 
 skape problemer med vibrasjonssensor. Frekvensene som mottas fra sensorene vil 
@@ -45,19 +44,31 @@ man kjører på, vil det være nødvendig å klassifisere noe som et problem der
 frekvensen som skiller seg ut er gjeldene i mer enn en gitt tid.
 
 \subsubsection{Regelbasert vs kunnskapsbasert resonnering}
-Ved bruk av vibrasjonssensor så er det vanskelig med analyse, man har mange forskjellige faktorer som bidrar til hvilke resultater man får fra sensorene.
-I et regelbasert system så lager man regler for alle mulige scenarier og grenseområder innenfor de målte verdiene og de forskjellige faktorene som påvirker resultatet. 
-Dette kan fort bli meget komplisert om det er mange faktorer som spiller inn på resultatet, og det kan være vanskelig å ta høyde for alle de mulige situasjonene som kan oppstå.
-Derfor ble kunnskapsbasert resonnering undersøkt. 
+Ved bruk av vibrasjonssensor så er det vanskelig med analyse, man har mange 
+forskjellige faktorer som bidrar til hvilke resultater man får fra sensorene.
+I et regelbasert system så lager man regler for alle mulige scenarier og 
+grenseområder innenfor de målte verdiene og de forskjellige faktorene som 
+påvirker resultatet. Dette kan fort bli meget komplisert om det er mange faktorer 
+som spiller inn på resultatet, og det kan være vanskelig å ta høyde for alle de 
+mulige situasjonene som kan oppstå. Derfor ble kunnskapsbasert resonnering undersøkt. 
 
 
-Kunnskapsbasert resonnering er et område innenfor kunstig intelligens for å gjøre en avgjørelse hvor samspillet mellom inputene til systemet er ukjent eller vanskelig å representere. Resonneringssystemet får inn målinger og klassifiserer målingene som enten at en hjulmutter er løs eller ikke, dette gjøres på bakgrun av treningsdata. Treningsdataen brukes for å lære systemet hvordan en løs hjulmutter korrekt skal klassifiseres ved nye observasjoner. Dataen burde inneholde en rekke forskjellige observasjoner av mulig data som systemet kan generere, samt en klassifikasjon per observasjon om det var en løs hjulbolt eller ikke.
+Kunnskapsbasert resonnering er et område innenfor kunstig intelligens for å gjøre 
+en avgjørelse hvor samspillet mellom inputene til systemet er ukjent eller vanskelig 
+å representere. Resonneringssystemet får inn målinger og klassifiserer målingene 
+som enten at en hjulmutter er løs eller ikke, dette gjøres på bakgrun av treningsdata. 
+Treningsdataen brukes for å lære systemet hvordan en løs hjulmutter korrekt skal 
+klassifiseres ved nye observasjoner. Dataen burde inneholde en rekke forskjellige 
+observasjoner av mulig data som systemet kan generere, samt en klassifikasjon per 
+observasjon om det var en løs hjulbolt eller ikke.
 
-En utfodring med å bruke resonneringssystem er å ha god nok treningsdata som dekker de mulige scenariene som can oppstå.
-Ved et resonneringssystem så har man også lite kontroll på hvordan systemet resonnerer og vekter sine inputs, derfor så er det vanskelig å si på forhånd om en observasjon vil bli klassifisert som en løs hjulmutter eller ikke. Ved bruk av et regelbasert system så har man mer kontrol på hvordan systemet behandler observasjoner, men det er igjen vanskeligere å initielt lage regler for de forskjellige situasjonene som kan oppstå.
-%Her har jeg tenkt å skrive noe om et tenkt resonneringssystem, et slags klasssifikasjon, for å analysere shitn.
-% eksempler: case based reasoning, bayes nets, beslutningstrær, ANN
-
+En utfodring med å bruke resonneringssystem er å ha god nok treningsdata som 
+dekker de mulige scenariene som can oppstå. Ved et resonneringssystem så har 
+man også lite kontroll på hvordan systemet resonnerer og vekter sine inputs, derfor 
+så er det vanskelig å si på forhånd om en observasjon vil bli klassifisert som en løs 
+hjulmutter eller ikke. Ved bruk av et regelbasert system så har man mer kontrol på 
+hvordan systemet behandler observasjoner, men det er igjen vanskeligere å initielt 
+lage regler for de forskjellige situasjonene som kan oppstå.
 
 \subsection{Visualisering}
 Dataene som mottas skal visualiseres etter å ha blitt analysert for å varsle 
