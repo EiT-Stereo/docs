@@ -57,17 +57,18 @@
 %\pagecolor{yellow!30} % Uncomment for debugging floats
 \pagenumbering{gobble}
 
-
 \input{section/front-page}
 %\newpage
 %
 \begin{abstract}
 \noindent
-%\input{section/abstract}
+\input{section/sammendrag}
 \end{abstract}
 
+\pagestyle{empty}
 \tableofcontents
 \newpage
+\pagestyle{fancy}
 \pagenumbering{arabic}
 
 %%%
@@ -100,7 +101,6 @@ Konklusjon
 Referanseliste
 Vedlegg
 }
-
 \chapter{Introduksjon}
 	\input{section/gruppen}
 	\input{section/initiativet}
