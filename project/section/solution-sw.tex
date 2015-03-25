@@ -1,11 +1,6 @@
 \section{Software}
 Dette kapittelet beskriver et tenkt software system for å detektere løse hjulbolter, i dette kapittelet omtales software-systemet kun som systemet.
 
-\subsection{Valg av teknologier}
-%Progspråk, GUI rammeverk etc.
-%Kanskje ha med valg av utviklings metodologi (agile, waterfall, etc.)
-%Kanskje nevne hvilke overføringsprotokoller mellom µc og sw.
-
 \subsection{Krav}
 Designet av systemet vil ikke ta for seg integrasjon med eksisterende system som allerede ligger i kjøretøyet det blir installert i. Derfor så er de kravene som gis, gitt på et generelt format og fokuserer mest på interaksjon med brukeren og sensorene. Ved å holde kravene generelle så legger det også gtil grunn for at systemet kan tilpasses til å passe sammen med eksisterende systemer. Tabell \ref{tab:frequirements} viser de funksjonelle kravene til systemet.
 \begin{table}[H]
@@ -61,4 +56,10 @@ For å analysere dataene som kommer fra en vibrasjonsmåler, så må man ha en g
 
 
 \subsection{Visualisering av data}
-%GUI og shit
+Vi laget en enkel prototype for å vise hvordan vi ønsker produktet skal fungere. Man starter med en vanlig at bruker får opp en varsel, hvor bruker har mulighet for å lukke varselen eller å se mer informasjon. Dersom brukeren velger å se mer informasjon får man opp skjermen på bildet under \ref{fig:proto}. Brukeren kan trykke på det aktuelle dekket som har en feil, her markert rødt, for å få opp mer detaljer om problemet.
+\begin{figure}[H]
+		\centering
+		\includegraphics[width=1.00\textwidth]{images/prototype.png}
+		\label{fig:proto}
+		\caption{Prototype - visualisering av løs hjulbolt}
+	\end{figure}
