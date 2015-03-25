@@ -75,44 +75,46 @@ sendingen. Dette avgjøres i storgrad av den eksisterende trafikken på CAN buss
 
 \subsubsection{Strekklapper/Trykklapper}
 
-Tanken er å legge strekklapper inni eller på utsiden av boltene eller
-trykklapper mellom bolt og nav. Strekklappene
-må/kan/bør legges i en krets (Wheatstone feks) for å kunne gi ut et målbart
-spenningsnivå. For å oppnå et målbart spenningsnivå må man mest sannsynlig
-forsterke signalet gjennom en In Amp. Denne analoge målingen krever mye lavere sampling end ved
-vibrasjonsmålinger da det trengs kortere signalprøver.
-Man kan få problemer med at signalet fra strekklappen må gjennom en slepering.
-Dette kan by på utfordringer med tanke på implementasjon og støy.
-Man må også ha en sensor per bolt. Dette fører til mer HW. En måte å redusere
-mengden HW på kan være å MUX'e signalene fra hver sensor til MCU. Det er mulig å lage
-en krets hvor man benytter seg av tidskonstanten i en RC-krets (dette må du
-undersøke litt). Overføring av
-signaler fra nav til aksling kan også skje ved induksjon (dette må du undersøke
-litt mer). For å koble til flere
-enheter på et CAN bus så kan man benytte seg av J1939 som fordelere ID på
-nettverket (dette må du undersøke litt mer). \\
-
-\begin{figure}[H]
+Strekklapper og trykklapper, som illustrert i Figur \ref{fig:Strekklapp_vector} og \ref{fig:Trykklapp_vector} baserer seg på samme prinsipp ved at det gir ut et målbart signal avhengig av
+motstandsendringen i lappen. 
+\begin{figure}[H] \centering
 \subfigure[]{
-	\includegraphics[width=0.4 \textwidth]{images/Straingage_vector.png}
+	\includegraphics[width=0.2 \textwidth]{images/Straingage_vector.png}
 	\label{fig:Strekklapp_vector}
 	}
 \hfill
 \subfigure[]{
-	\includegraphics[width=0.2 \textwidth]{images/trykklapp_vector.png}
+	\includegraphics[width=0.1 \textwidth]{images/trykklapp_vector.png}
 	\label{fig:Trykklapp_vector}
 	}
 \caption{\protect{\ref{fig:Strekklapp_vector}} Strekklapp i bolt (orange), \protect{\ref{fig:Trykklapp_vector}} Trykklapp (orange) mellom bolt og mutter.}
 \end{figure}
+Ved å legge strekklapper inni eller på utsiden av boltene eller
+trykklapper mellom mutter og nav kan det detekteres om en mutter løsner. Strekklappene
+legges i en wheatstone bridge \cite{wheatstone} for å kunne gi ut et målbart
+spenningsnivå. For å oppnå et målbart spenningsnivå kan det kreves å
+forsterke signalet gjennom en forsterker krets. Denne analoge målingen krever mye lavere sampling enn ved
+vibrasjonsmålinger da det trengs kortere signalprøver.
+% problemer med at signalet fra strekklappen må gjennom en slepering.
+%Dette kan by på utfordringer med tanke på implementasjon og støy.
+Det kreves også ha en sensor per bolt. Dette kompliserer HW, men en måte å redusere
+mengden HW på kan være å multiplexe signalene fra hver sensor til MCU'en. 
+%Det er mulig å lage
+%en krets hvor man benytter seg av tidskonstanten i en RC-krets (dette må du
+%undersøke litt). 
+Overføring av signaler fra nav til aksling kan også skje ved induksjon. 
+%For å koble til flere
+%enheter på et CAN bus så kan man benytte seg av J1939 som fordelere ID på
+%nettverket (dette må du undersøke litt mer). \\
 
 \subsection{Utfordringer}
 
 Problemet med å måle vibrasjoner er at en sampleprøve av et signal innenfor et gitt tidsrom kan bli veldig stor. Som
 et resultat at de store sampleprøvene kan det oppstå båndbreddeproblemer på CAN-bussen. Grunnen til dette
 er at samplingsfrekvensen man sampler signalet med må være
-minst dobbelt så høy som frekvensen av signalet, if ølge Nyquist–Shannon sampling theorem \cite{nyquist}. Høyere
+minst dobbelt så høy som frekvensen av signalet, i følge Nyquist–Shannon sampling theorem \cite{nyquist}. Høyere
 samplingsrate gir bedre signalrepresentasjon, og en god
 representasjon av signalet kan være viktig for en eventuell analysealgoritme.
 
 Dersom analysealgoritmen kjøres på en DSP slipper CAN-bussen og overbelastes av store datamengder.
-Algoritmen ligger ikke da i det sentrale systemet og det kan bli vanskeligere å forbedre algoritmen ved hjelp av AI.
+Algoritmen ligger ikke da i det sentrale systemet og det kan bli vanskeligere å forbedre algoritmen ved hjelp av AI. 
