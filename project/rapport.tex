@@ -42,9 +42,13 @@
 % Header packages
 \usepackage{fancyhdr}
 \pagestyle{fancy}
-\rhead{Chapter: \thechapter}
+\rhead{Kapittel: \thechapter}
 
-% Custom 
+% Footer packages
+\usepackage{lastpage}
+\cfoot{\thepage\ av \pageref{LastPage}}
+
+% Custom
 %\newcommand{\newCommandName}{text to insert} % Defines a variable in LaTeX
 \newcommand{\comment}[1]{} \comment{This is a block comment wrapped in curly brackets}
 %\renewcommand{\thefootnote}{\roman{footnote}}
@@ -53,52 +57,98 @@
 %\pagecolor{yellow!30} % Uncomment for debugging floats
 \pagenumbering{gobble}
 
-
 \input{section/front-page}
 %\newpage
 %
-%\input{section/abstract}
+\begin{abstract}
+\noindent
+\input{section/sammendrag}
+\end{abstract}
 
+\pagestyle{empty}
 \tableofcontents
 \newpage
+\pagestyle{fancy}
 \pagenumbering{arabic}
 
 %%%
 % Put new includes here
 %%%
 
-\input{section/introduction}
-\input{section/datavisualisering}
 \comment{ foreløpig struktur på rapport:
-prestudy
-	hw
-	sw
-	markedsundersøkelse
-	existing solutions
-	hvorfor vår(e) ide(er) er bedre.
-designchoises / arkitekturvalg
-use cases/arkitektur scetches
-tests?
-oppsummering
+Sammendrag
+Innhold
+Introduksjon
+	Gruppen
+	Initiativet
+	Problemet
+	Ideen
+Pre study
+	Mekanikk
+	Hardware
+	Software
+Markedsundersøkelse
+	generelt
+	4 p'er
+Løsning
+	valg av løsning
+	hardware
+	software
+		GUI
+	diskusjon
+Konklusjon
+Referanseliste
+Vedlegg
 }
+\chapter{Introduksjon}
+	\input{section/gruppen}
+	\input{section/initiativet}
+	\input{section/problemet}
+	\input{section/ideen}
 
+
+\chapter{Forstudie}
+	\input{section/mekanikk}
+	\input{section/vibrasjoner}
+	\input{section/prestudy}
+	\input{section/prestudy-sw}
+	\input{section/existing-solutions}
+\chapter{Markedsanalyse}
+	\input{section/markedsanalyse}
+	%generelt
+	%4 p'er
+\chapter{Design og implementasjon}
+	\input{section/valglosning}
+	\input{section/muligheter_losning}
+	\input{section/architecture}
+	%\input{section/løsning}
+	\input{section/solution-hw}
+	\input{section/solution-sw}
+	%\input{section/løsningdiskusjon}
+\chapter{Diskusjon}
+	\input{section/diskusjon_vibrasjon}
+\chapter{Konklusjon}
+%\input{section/Konklusjon}
 %%%
 % End includes
 %%%
 
-%\newpage
-%\addcontentsline{toc}{chapter}{List of Tables}
-%\listoftables
-%\addcontentsline{toc}{chapter}{List of Figures}
-%\listoffigures
-%\addcontentsline{toc}{chapter}{Bibliography}
-%\bibliographystyle{plain}
-%\input{section/bibliography}
+\newpage
+\addcontentsline{toc}{chapter}{Tabeller}
+\listoftables
+\begingroup
+\let\clearpage\relax
+\addcontentsline{toc}{chapter}{Figurer}
+\listoffigures
+\endgroup
+\newpage
+\addcontentsline{toc}{chapter}{Bibliografi}
+\bibliographystyle{plain}
+\input{section/Bibliografi}
 
-%\newpage
-%\addcontentsline{toc}{chapter}{Appendixes} % This line may break your compilation, and may require recompiation. Not to worry though.
-%\appendix
+\newpage
+\addcontentsline{toc}{chapter}{Appendix} % This line may break your compilation, and may require recompiation. Not to worry though.
+\appendix
 %\input{section/appendix-someAppendix}
-
 
 \end{document}
