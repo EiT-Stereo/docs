@@ -1,8 +1,8 @@
 \section{Software}
-Dette kapittelet beskriver et tenkt software system for å detektere løse hjulbolter, i dette kapittelet omtales software-systemet kun som systemet.
+Dette kapittelet beskriver et tenkt software system for å detektere løse hjulbolter, i dette delkapittelet omtales software-systemet kun som systemet.
 
 \subsection{Krav}
-Designet av systemet vil ikke ta for seg integrasjon med eksisterende system som allerede ligger i kjøretøyet det blir installert i. Derfor så er de kravene som gis, gitt på et generelt format og fokuserer mest på interaksjon med brukeren og sensorene. Ved å holde kravene generelle så legger det også til grunn for at systemet kan tilpasses til å passe sammen med eksisterende systemer. Tabell \ref{tab:frequirements} viser de funksjonelle kravene til systemet.
+Designet av systemet vil ikke ta for seg integrasjon med eksisterende system som allerede ligger i kjøretøyet det blir installert i. Derfor er de kravene som gis, gitt på et generelt format og fokuserer mest på interaksjon med brukeren og sensorene. Ved å holde kravene generelle legger det også til grunn for at systemet kan tilpasses til å passe sammen med eksisterende systemer. Tabell \ref{tab:frequirements} viser de funksjonelle kravene til systemet.
 \begin{table}[H]
 \caption{Funksjonelle krav}
 \label{tab:frequirements}
@@ -19,7 +19,7 @@ FR6 & Brukergrensesnittet skal varsle brukeren om et hjul får en eller flere l�
 \end{tabularx}
 \end{table}
 
-For å verifisere kvaliteten på systemet, behøves det også noen ikke-funksjonelle krav. Disse er forklart i tabell \ref{tab:nfrequirements}.
+For å verifisere kvaliteten på systemet, behøves det også noen ikke-funksjonelle krav. Disse er beskrevet i tabell \ref{tab:nfrequirements}.
 \begin{table}[H]
 \caption{Ikke-funksjonelle krav}
 \label{tab:nfrequirements}
@@ -41,22 +41,16 @@ Siden det skal brukes vibrasjonssensor så gir dette mulighet for å legge til f
 Dette gjør grunnlag for kvalitetsattributtene usability og modifiability, som vil være de arkitekturiske driverene til systemet. 
 Med høy usability så vil det være enkelt og intuitivt for sjåførene å bruke systemet, og systemet skal ikke forstyrre føreren mer enn nødvendig. 
 Ved å ha high modifiability så menes det at systemet skal være enkelt for utviklere å legge til nye funksjoner til systemet, som for eksempel å legge til detektering og varsling av slitte hjullager.
-%TODO
-%ikke-funksjonelle krav(Quality Attribute requirements)
-%Architectural patterns and tactics
-%Quality Attributes, scenarios
-%Stakeholders 
-%Architecturel views (klassediagram og div uml shit)
 
 \subsection{Use cases}
 \input{section/usecases}
 
 \subsection{Analyse av data}
-For å analysere dataene som kommer fra en vibrasjonsmåler, så må man ha en ganske avansert og pålitelig software. Dette systemet bruker Fourieranalyse for å skille ut individuelle frekvenser, og et kunnskapsbasert resonneringssystem for å analysere resultatet fra fourieranalysen.
+For å analysere dataene som kommer fra en vibrasjonsmåler, må man ha en ganske avansert og pålitelig software. Dette systemet bruker Fourieranalyse for å skille ut individuelle frekvenser, og et kunnskapsbasert resonneringssystem for å analysere resultatet fra fourieranalysen.
 
 
 \subsection{Visualisering av data}
-Vi laget en enkel prototype for å vise hvordan vi ønsker produktet skal fungere. Man starter med en vanlig at bruker får opp en varsel, hvor bruker har mulighet for å lukke varselen eller å se mer informasjon. Dersom brukeren velger å se mer informasjon får man opp skjermen på bildet under \ref{fig:proto}. Brukeren kan trykke på det aktuelle dekket som har en feil, her markert rødt, for å få opp mer detaljer om problemet.
+Prototypen viser i enkelhet hvordan produktet skal fungere. Man starter med en vanlig at bruker får opp en varsel, hvor brukeren har mulighet for å lukke varselen eller å se mer informasjon. Dersom brukeren velger å se mer informasjon får man opp skjermen på figur \ref{fig:proto}. Brukeren kan trykke på det aktuelle dekket som har en feil, her markert rødt, for å få opp mer detaljer om problemet.
 \begin{figure}[H]
 		\centering
 		\includegraphics[width=1.00\textwidth]{images/prototype.png}
