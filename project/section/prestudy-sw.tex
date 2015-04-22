@@ -1,36 +1,30 @@
-%TODO: Formatering
 \section{Software}
-All sensordata mottas fra microcontrollerene hos en sentral enhet som skal ta seg 
+All sensordata mottas fra mikrokontrollerene hos en sentral enhet som skal ta seg 
 av analyse og visualisering av dataene. Hvordan analysen og visualiseringen av 
 dataene skal fungere avhenger av hvilken type sensorer som brukes i systemet. I 
 denne rapporten taes det for seg tre forskjellige typer sensorer, strekklapp, 
-trykksensor, og vibrasjonssensor. På grunn av likheter i verdier og analysering 
-av verdier velger vi å omtale strekklappsensor og trykksensor sammen som 
-boltsensor.
+trykksensor, og vibrasjonssensor.
 
 \subsection{Analyse av data}
 Hvordan data skal analyseres vil være avhengig av hvilken type sensor man velger 
 for systemet. 
 
-\subsubsection{Strekklapp/Trykksensor}
+\subsubsection{Strekklapp/trykksensor}
 Ved bruk av enten strekklapp eller trykksensor vil man få inn en verdi per bolt 
 om hvor mye en bolt er strammet til. Analysen vil gå ut på å sammenligne målinger 
 med grenseverdier som er satt for de ulike sensorene.
 
 En utfordring ved bruk av strekklapp/trykksensor er håndtering av 
-funksjonssvikt i sensor på en bolt. Temperatur og andre eksterne faktorer kan 
-også påvirke utslaget i sensorene, så det vil kunne være vanskelig å vite 
-nøyaktig hvor løs en bolt egentlig er.
+funksjonssvikt i sensor på en bolt.
 
 \subsubsection{Vibrasjonssensor}
 Ved bruk av vibrasjonssensor vil man få inn verdier fra en sensor som lytter på 
 akslingene. Dersom man bruker av en sensor per aksling vil man kunne detektere at 
 det er en feil på et av hjulene på akslingen. Ved bruk av to sensorer per aksling 
-vil man kunne se hvilket hjul problemet gjelder. Dette kan gjøres ved å se 
-hvilken sensor som sendte lyden først.
-
-En kjent feil (f.eks. løse hjulbolter) vil høre til et kjent frekvensområde, som 
-kan brukes til å skille ut eventuelle feil som skulle oppstå.
+vil man kunne se hvilket hjul problemet gjelder, dette kan gjøres ved å se 
+hvilken sensor som sendte signalet først. En kjent feil (f.eks. løse hjulmuttere) vil 
+høre til et kjent frekvensområde, som kan brukes til å skille ut eventuelle 
+feil som skulle oppstå.
 
 Dersom man kjører på annet underlag slik som snø eller grus, vil dette kunne 
 skape problemer med vibrasjonssensor. Frekvensene som mottas fra sensorene vil 
@@ -45,47 +39,58 @@ man kjører på, vil det være nødvendig å klassifisere noe som et problem der
 frekvensen som skiller seg ut er gjeldene i mer enn en gitt tid.
 
 \subsubsection{Regelbasert vs kunnskapsbasert resonnering}
-Ved bruk av vibrasjonssensor så er det vanskelig med analyse, man har mange forskjellige faktorer som bidrar til hvilke resultater man får fra sensorene.
-I et regelbasert system så lager man regler for alle mulige scenarier og grenseområder innenfor de målte verdiene og de forskjellige faktorene som påvirker resultatet. 
-Dette kan fort bli meget komplisert om det er mange faktorer som spiller inn på resultatet, og det kan være vanskelig å ta høyde for alle de mulige situasjonene som kan oppstå.
-Derfor ble kunnskapsbasert resonnering undersøkt. 
+Ved bruk av vibrasjonssensor så er det vanskelig med analyse, man har mange 
+forskjellige faktorer som bidrar til hvilke resultater man får fra sensorene.
+I et regelbasert system så lager man regler for alle mulige scenarier og 
+grenseområder innenfor de målte verdiene og de forskjellige faktorene som 
+påvirker resultatet. Dette kan fort bli meget komplisert om det er mange faktorer 
+som spiller inn på resultatet, og det kan være vanskelig å ta høyde for alle de 
+mulige situasjonene som kan oppstå. Derfor ble kunnskapsbasert resonnering undersøkt. 
 
+Kunnskapsbasert resonnering er et område innenfor kunstig intelligens for å gjøre 
+en avgjørelse hvor samspillet mellom inputene til systemet er ukjent eller vanskelig 
+å representere. Resonneringssystemet får inn målinger og klassifiserer målingene 
+som enten at en hjulmutter er løs eller ikke, dette gjøres på bakgrun av treningsdata. 
+Treningsdataen brukes for å lære systemet hvordan en løs hjulmutter korrekt skal 
+klassifiseres ved nye observasjoner. Dataen burde inneholde en rekke forskjellige 
+observasjoner av mulig data som systemet kan generere, samt en klassifikasjon per 
+observasjon om det var en løs hjulbolt eller ikke.
 
-Kunnskapsbasert resonnering er et område innenfor kunstig intelligens for å gjøre en avgjørelse hvor samspillet mellom inputene til systemet er ukjent eller vanskelig å representere. Resonneringssystemet får inn målinger og klassifiserer målingene som enten at en hjulmutter er løs eller ikke, dette gjøres på bakgrun av treningsdata. Treningsdataen brukes for å lære systemet hvordan en løs hjulmutter korrekt skal klassifiseres ved nye observasjoner. Dataen burde inneholde en rekke forskjellige observasjoner av mulig data som systemet kan generere, samt en klassifikasjon per observasjon om det var en løs hjulbolt eller ikke.
-
-En utfodring med å bruke resonneringssystem er å ha god nok treningsdata som dekker de mulige scenariene som can oppstå.
-Ved et resonneringssystem så har man også lite kontroll på hvordan systemet resonnerer og vekter sine inputs, derfor så er det vanskelig å si på forhånd om en observasjon vil bli klassifisert som en løs hjulmutter eller ikke. Ved bruk av et regelbasert system så har man mer kontrol på hvordan systemet behandler observasjoner, men det er igjen vanskeligere å initielt lage regler for de forskjellige situasjonene som kan oppstå.
-%Her har jeg tenkt å skrive noe om et tenkt resonneringssystem, et slags klasssifikasjon, for å analysere shitn.
-% eksempler: case based reasoning, bayes nets, beslutningstrær, ANN
-
+En utfodring med å bruke kunnskapsbasert resonnering er å ha god nok treningsdata 
+som dekker de mulige scenariene som kan oppstå. Ved et resonneringssystem så har 
+man også lite kontroll på hvordan systemet resonnerer og vekter sine inputs, derfor 
+så er det vanskelig å si på forhånd om en observasjon vil bli klassifisert som en løs 
+hjulmutter eller ikke. Ved bruk av et regelbasert system så har man mer kontrol på 
+hvordan systemet behandler observasjoner, men det er igjen vanskeligere å initielt 
+lage regler for de forskjellige situasjonene som kan oppstå.
 
 \subsection{Visualisering}
 Dataene som mottas skal visualiseres etter å ha blitt analysert for å varsle 
 sjåfør ved eventuelle problemer. Når det oppstår et problem skal sjåføren bli 
 varslet i form av en visuell varsling på et display.
 
-\subsubsection{Strekklapp/Trykksensor}
+\subsubsection{Strekklapp/trykksensor}
 Sjåføren vil til en hver tid ha mulighet for å se verdiene for de ulike dekkene 
 og sensorene. 
 
 Ved bruk av farger kan man visualisere hvor løse mutterne på et hjul er, samt se 
 verdier for hver sensor om ønskelig. Dersom man får inn en verdi fra 
 strekklappsensor eller trykksensor som er høyere enn en grenseverdien for løse 
-muttere, vil man få opp en advarsel på skjermen. Varselen vil variere fra en 
-mindre notifikasjon i hjørnet av skjermen for mindre alvorlige feil, til en 
+muttere, vil man få opp en advarsel på skjermen. Varselen vil variere fra et 
+mindre varsel i hjørnet av skjermen for mindre alvorlige feil, til en 
 større varsel midt på skjermen for mer alvorlige feil.
 
 En utfordring ved bruk av strekklapp eller trykksensor vil kunne ligge i den 
 visuelle representasjonen av feilmeldingen. Det kan i utgangspunktet virke som 
 en god idé å vise detaljer ned til hvilken bolt det er registrert avvik i. Det 
 som da blir problemet er å vise hvilken posisjon hjulet har rotasjonsmessig for 
-å la fører slippe å ettertrekke alle mutre på gitte hjul.
+å la fører slippe å ettertrekke alle muttre på gitte hjul.
 
 \subsubsection{Vibrasjonssensor}
 Visualisering ved bruk av vibrasjonssensorer vil først og fremst være varsling 
 ved eventuelle feil som måtte oppstå. Ut i fra om man velger å ha en eller to 
 sensorer per aksling vil man få informasjon om hvilket hjul eller aksling 
-problemet gjelder. Her vil man også få opp en liten notifikasjon ved mindre 
+problemet gjelder. Her vil man også få opp en liten varsel ved mindre 
 alvorlige feil og et større varsel ved mer alvorlige feil . Ved å trykke seg 
 inn på varselen eller notifikasjonen vil man kunne få en bedre oversikt over 
 problemene. Symboler og farger vil vise til hvilke feil som er gjeldene og hvor 

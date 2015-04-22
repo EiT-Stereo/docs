@@ -1,19 +1,19 @@
-%TODO: Kontakte noen som kan gi informasjon om formatet til pakken i nivået over
-%CAN nettverket. Det er ønskelig å vite hva som blir brukt i dagens bilssytemer.
-
 \section{Hardware}
 
-Løsningen for hardwaredesignet baserer seg på vibrasjonsmålinger, som diskutert
-i forstudiet (ref). For å løse dette trengs vibrajsonsmålere, en forsterkere,
-en mikrokontroller og en CAN controller. Mikrokontrolleren skal styre
-samplingsvinduet til vibrasjons-/frekvensmålingene og pakke målingene i en serie
-av frames som sendes over CAN nettverket. CAN kontrolleren kan legges til som en
-egen komponent eller den kan være integrert i mikrokontrolleren. Forsterkerene er
-nødvendig for å få justert nivået fra sensorene til et ønskelig nivå. Sensorene
-kobles til ADC-enheten i mikrocontrolleren og oppløsnignen ADC'en
-har innvirkning på hvilken båndbredde samplingen har. \\
+HW må lages slik at det støtter innhenting og utsending av data fra to vibrasjonssensorer. 
+For å samle og sende data trengs en MCU, og for å kunne måle spenningsverdiene fra sensorene
+må denne MCUen ha minst to ADC kanaler. Hver sensor kobles til hver sin ADC kanal, eventuelt
+med en forsterkerkrets mellom sensor og MCU dersom nødvendig å forsterke signalet.
+Avhengig av frekvensen på signalene som skal fanges og ønsket samplingsrate av signalet, må 
+MCUen ha en ADC som støtter ønsket samplinger per sekund. I tillegg må HW sende dataen 
+videre til kontrollsystemet for videre analyse. Da må HW støtte CAN bus protokollen enten innebygget
+i MCUen eller som en egen integrertkrets. Begge alternativer er gode, men kostnad vil nok favorisere
+én mindre integrert krets. Firmaren \cite{firmware} som skal ligge i minnet på MCUen krever lite plass, 
+da dette innvevde systemet \cite{embedded} kun skal ligge i dvale til det skal ta en lydprøve og sende 
+videre. Dagens MCUer kommer i mange
+ulike varianter, så å finne en MCU som har god nok oppløsning på ADC og kan kommunisere over CAN
+er ikke noe problem. 
 
-Denne løsningen sentraliserer signalbehandlingen. Det vil si at hardware nøyer
-seg med å sample signalet før det sendes til systemets sentrale
-prosesseringsenhet. Da slipper man avansert hardware som DSP og man gjør det
-lettere å oppdatere algoritmen som kjøres på signal-samplene.
+Fordelen med denne løsningen er at man får sentralisert analysering av lydprøver i kontrollenheten.
+Det gir mulighet for raskere endring av software og erfaringsbasert analyse. Det reduserer også kompleksiteten
+av HW som igjen fører til redusert kost. 
