@@ -1,11 +1,6 @@
 \section{Software}
 Dette kapittelet beskriver et tenkt software system for å detektere løse hjulbolter, i dette kapittelet omtales software-systemet kun som systemet.
 
-\subsection{Valg av teknologier}
-%Progspråk, GUI rammeverk etc.
-%Kanskje ha med valg av utviklings metodologi (agile, waterfall, etc.)
-%Kanskje nevne hvilke overføringsprotokoller mellom µc og sw.
-
 \subsection{Krav}
 Designet av systemet vil ikke ta for seg integrasjon med eksisterende system som allerede ligger i kjøretøyet det blir installert i. Derfor så er de kravene som gis, gitt på et generelt format og fokuserer mest på interaksjon med brukeren og sensorene. Ved å holde kravene generelle så legger det også gtil grunn for at systemet kan tilpasses til å passe sammen med eksisterende systemer. Tabell \ref{tab:frequirements} viser de funksjonelle kravene til systemet.
 \begin{table}[H]
@@ -47,17 +42,15 @@ Dette gjør grunnlag for kvalitetsattributtene usability og modifiability, som v
 Med høy usability så vil det være enkelt og intuitivt for sjåførene å bruke systemet, og systemet skal ikke forstyrre føreren mer enn nødvendig. 
 Ved å ha high modifiability så menes det at systemet skal være enkelt for utviklere å legge til nye funksjoner til systemet, som for eksempel å legge til detektering og varsling av slitte hjullager.
 
-%ikke-funksjonelle krav(Quality Attribute requirements)
-%Architectural patterns and tactics
-%Quality Attributes, scenarios
-%Stakeholders 
-%Architecturel views (klassediagram og div uml shit)
-
 \subsection{Use cases}
 \input{section/usecases}
 
 \subsection{Analyse av data}
-For å analysere dataene som kommer fra en vibrasjonsmåler, så må man ha en ganske avansert og pålitelig software. Dette systemet bruker Fourieranalyse for å skille ut individuelle frekvenser, og et kunnskapsbasert resonneringssystem for å analysere resultatet fra fourieranalysen.
+For å analysere dataene som kommer fra en vibrasjonsmåler, så må man ha en ganske avansert og pålitelig software. Dette systemet bruker Fourieranalyse for å skille ut individuelle frekvenser, og et kunnskapsbasert resonneringssystem for å analysere resultatet fra fourieranalysen. Fourieranalysen danner lydbilder av hvilke frekvenser som er dominerende i bibrasjonsmålingen.
+
+Det kunnskapsbaserte systemet vil ha en kunnskapsbase med tidligere lagret lydbilder fra tester hvor hjulmuttere har vært løsnet. Systemet tar så og sammenligner de nye lydbildene med de den har i kunnskapsbasen. Dette kan løses med forskjellige metoder for kunnskapsbaserte system, som for eksempel case basert resonnering (CBR), beslutningstrær, eller kunstige neurale netverk (ANN). Den metoden som er tenkt i dette systemet er case basert resonnering, siden man da kan lagre unna hele lydbilder i kunnskapsbasen og det er enkelt å modifisere, håndtere, og forstå kunnskapsbasen. En ulempe med å bruke CBR er at det kreves mer prosseseringskraft i det man kjører, siden sammenligningen skjer når man kjører i motsetning til å kalkulere alt på forhånd. 
+
+Når analyseringen klassifiserer lydbildet som den mottar som at det finnes en løs hjulmutter, så vil det sende et varsel til det grafiske brukergrensesnittet.
 
 
 \subsection{Visualisering av data}
