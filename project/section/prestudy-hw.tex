@@ -45,11 +45,11 @@ Vibrasjonsmåling kan bli gjort med teknologier som et akselerometer eller ved
 pizoelektriske mikrofoner. Slike sensorer vil kunne gi et signal som inneholder
 ulike frekvenstyper som kan analyseres. Slik kan man gjenkjenne mønstre i
 frekvensbåndet som indikerer eksempevis en løs mutter. For å analysere dette signalet må det
-samples med en Analog-til-Digital Converter (ADC). Dersom signalet er svakt må det også forsterkes gjennom en
+samples med en Analog-til-Digital Converter (ADC) \cite{adc}. Dersom signalet er svakt må det også forsterkes gjennom en
 forsterker krets. 
 
 For å hente ut informasjon av signalet må en algoritme undersøke
-frekvensoppbyggingen av signalet. Dette kan bli gjort i HW med en Digital Signal Processor (DSP), men kan
+frekvensoppbyggingen av signalet. Dette kan bli gjort i HW med en Digital Signal Processor (DSP) \cite{dsp}, men kan
 også gjøres i software (SW) ved at det sendes en signalprøve fra HW til kontrolsystemet. Å
 bruke en DSP kompliserer HW og effektforbruk og kost øker. Det krever også at algoritmen på DSP'en 
 er lastet inn før den brukes og kan ikke endres uten at den omprogrammeres. Analyseres signalene i HW kan vil
