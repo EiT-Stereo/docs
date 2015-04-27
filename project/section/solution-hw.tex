@@ -13,14 +13,14 @@ i MCUen eller som en egen integrertkrets. Begge alternativer er gode, men kostna
 én mindre integrert krets. Firmaren \cite{firmware} som skal ligge i minnet på MCUen krever lite plass, 
 da dette innvevde systemet \cite{embedded} kun skal ligge i dvale til det skal ta en lydprøve og sende 
 videre. Dagens MCUer kommer i mange
-ulike varianter, så å finne en MCU som har god nok oppløsning på ADC og kan kommunisere over CAN
-er ikke noe problem. 
+ulike varianter, så å finne en MCU som har god nok oppløsning på ADC og kan kommunisere over CAN anses ikke som et problem. 
 
 Fordelen med denne løsningen er at man får sentralisert analysering av lydprøver i kontrollenheten.
 Det gir mulighet for raskere endring av software og erfaringsbasert analyse. Det reduserer også kompleksiteten
 av HW som igjen fører til redusert kost. 
 
-Figur \ref{fig:hw} viser en prototype som støtter sensorer og har riktig nettverkstilkoblinger. 
+Figur \ref{fig:hw} viser en prototype som støtter sensorer og har riktig nettverkstilkoblinger og er designet med
+Altium Designer 15 \cite{altium}. 
 \begin{figure}[H] \centering
 \includegraphics[width=0.5 \textwidth]{images/eit_prototype.png}
 \caption{Prototype av hardware module.}
