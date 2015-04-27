@@ -57,7 +57,7 @@ det kunne sendes korte datapakker på CAN bussen og sampling av signalet vil kun
 positivt med tanke på å ikke overbelaste CAN bussen som brukes av mange andre enheter i bilen. 
 
 Analyserer man signalet i SW blir det lettere å oppdatere algoritmen etter installasjon av HW
-samt at det kan benyttes artificial intellegence (AI) til å justere algoritmen bassert på målinger underveis. 
+samt at det kan benyttes kunskapsbasert resonnering til å justere algoritmen bassert på målinger underveis. 
 Dette forenkler HW litt ved at man ikke trenger en DSP krets, men HW blir nødt å sende større pakker over CAN
 bussen. Dette kan potensielt bruke opp båndbredden til CAN bussen dersom store pakker med data sendes ofte. 
 Det er vitkig å komme frem til en akseptabel størrelse på samplingsdataen som skal sendes samt frekvensen på
@@ -73,7 +73,7 @@ sendingen. Dette avgjøres i storgrad av den eksisterende trafikken på CAN buss
 
 \subsubsection{Strekklapper/Trykklapper}
 
-Strekklapper og trykklapper, som illustrert i Figur \ref{fig:Strekklapp_vector} og \ref{fig:Trykklapp_vector} baserer seg på samme prinsipp ved at det gir ut et målbart signal avhengig av
+Strekklapper og trykklapper, som illustrert i henholdsvis Figur \ref{fig:Strekklapp_vector} og \ref{fig:Trykklapp_vector} baserer seg på samme prinsipp ved at det gir ut et spenningsnivå avhengig av
 motstandsendringen i lappen. 
 \begin{figure}[H] \centering
 \subfigure[]{
@@ -100,7 +100,7 @@ mengden HW på kan være å multiplexe signalene fra hver sensor til MCU'en.
 %Det er mulig å lage
 %en krets hvor man benytter seg av tidskonstanten i en RC-krets (dette må du
 %undersøke litt). 
-Overføring av signaler fra nav til aksling kan også skje ved induksjon. 
+Overføring av signaler fra nav til aksling kan skje ved induksjon eller via en slepering. 
 %For å koble til flere
 %enheter på et CAN bus så kan man benytte seg av J1939 som fordelere ID på
 %nettverket (dette må du undersøke litt mer). \\
@@ -115,4 +115,4 @@ samplingsrate gir bedre signalrepresentasjon, og en god
 representasjon av signalet kan være viktig for en eventuell analysealgoritme.
 
 Dersom analysealgoritmen kjøres på en DSP slipper CAN-bussen og overbelastes av store datamengder.
-Algoritmen ligger ikke da i det sentrale systemet og det kan bli vanskeligere å forbedre algoritmen ved hjelp av AI. 
+Algoritmen ligger ikke da i det sentrale systemet og det kan bli vanskeligere å forbedre algoritmen ved hjelp av kunstig intelligens. 
