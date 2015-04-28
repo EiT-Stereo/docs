@@ -42,9 +42,13 @@
 % Header packages
 \usepackage{fancyhdr}
 \pagestyle{fancy}
-\rhead{Chapter: \thechapter}
+\rhead{Kapittel: \thechapter}
 
-% Custom 
+% Footer packages
+\usepackage{lastpage}
+\cfoot{\thepage\ av \pageref{LastPage}}
+
+% Custom
 %\newcommand{\newCommandName}{text to insert} % Defines a variable in LaTeX
 \newcommand{\comment}[1]{} \comment{This is a block comment wrapped in curly brackets}
 %\renewcommand{\thefootnote}{\roman{footnote}}
@@ -52,7 +56,6 @@
 \begin{document}
 %\pagecolor{yellow!30} % Uncomment for debugging floats
 \pagenumbering{gobble}
-
 
 \input{section/front-page}
 %\newpage
