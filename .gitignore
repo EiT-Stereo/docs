@@ -20,3 +20,5 @@
 *.synctex*
 # WinEDT project file
 *.prj
+# Gimp project file
+*.xcf
